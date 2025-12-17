@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        book b1 = new book("Abai joly", "J.K. Rowling", 1997, true);
+        book b1 = new book("Abai joly", "Abai", 1997, true);
         book b2 = new book("The Hobbit", "J.R.R. Tolkien", 1937, false);
 
         LibraryUser u1 = new LibraryUser("Alice", 1);
