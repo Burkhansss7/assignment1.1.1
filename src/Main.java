@@ -1,13 +1,22 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+public class Main {
+    public static void main(String[] args) {
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+        book b1 = new book("Harry Potter", "J.K. Rowling", 1997, true);
+        book b2 = new book("The Hobbit", "J.R.R. Tolkien", 1937, false);
+
+        LibraryUser u1 = new LibraryUser("Alice", 1);
+        LibraryUser u2 = new LibraryUser("Bob", 2);
+
+        Library library = new Library("City Library");
+        library.addBook(b1);
+        library.addBook(b2);
+
+        b1.printInfo();
+        b2.printInfo();
+        u1.printInfo();
+        u2.printInfo();
+        library.printBooks();
+
+        System.out.println("Are books equal? " + (b1.getTitle().equals(b2.getTitle())));
+    }
 }
