@@ -1,22 +1,12 @@
 public class Main {
     public static void main(String[] args) {
 
-        book b1 = new book("Abai joly", "Abai", 1997, true);
-        book b2 = new book("The Hobbit", "J.R.R. Tolkien", 1937, false);
+        LibraryItem item1 = new book("Java Basics", "John Doe", 2023, true);
+        LibraryItem item2 = new book("C++ Basics", "Artem Sergey", 2020, false);
 
-        LibraryUser u1 = new LibraryUser("Alice", 1);
-        LibraryUser u2 = new LibraryUser("Bob", 2);
+        item1.printInfo();
+        item2.printInfo();
 
-        Library library = new Library("City Library");
-        library.addBook(b1);
-        library.addBook(b2);
-
-        b1.printInfo();
-        b2.printInfo();
-        u1.printInfo();
-        u2.printInfo();
-        library.printBooks();
-
-        System.out.println("Are books equal? " + (b1.getTitle().equals(b2.getTitle())));
+        System.out.println(item1.equals(item2));
     }
 }

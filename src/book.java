@@ -1,28 +1,51 @@
- public class book {
-        private String title;
-        private String author;
-        private int year;
-        private boolean isAvailable;
+import java.util.Objects;
 
-        public book(String title, String author, int year, boolean isAvailable) {
-            this.title = title;
-            this.author = author;
-            this.year = year;
-            this.isAvailable = isAvailable;
-        }
+public class book extends LibraryItem {
 
-        public String getTitle() { return title; }
-        public String getAuthor() { return author; }
-        public int getYear() { return year; }
-        public boolean isAvailable() { return isAvailable; }
+    private String author;
+    private boolean isAvailable;
 
-        public void setTitle(String title) { this.title = title; }
-        public void setAuthor(String author) { this.author = author; }
-        public void setYear(int year) { this.year = year; }
-        public void setAvailable(boolean available) { isAvailable = available; }
-
-        public void printInfo() {
-            System.out.println("Book: " + title + " | " + author + " | " + year + " | Available: " + isAvailable);
-        }
+    public book(String title, String author, int year, boolean isAvailable) {
+        super(title, year);
+        this.author = author;
+        this.isAvailable = isAvailable;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", year=" + year +
+                ", available=" + isAvailable +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof book)) return false;
+        book book = (book) o;
+        return year == book.year &&
+                title.equals(book.title) &&
+                author.equals(book.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, author, year);
+    }
+}
