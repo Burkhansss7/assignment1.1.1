@@ -1,12 +1,11 @@
 public class Main {
     public static void main(String[] args) {
 
-        LibraryItem item1 = new book("Java Basics", "John Doe", 2023, true);
-        LibraryItem item2 = new book("C++ Basics", "Artem Sergey", 2020, false);
-
-        item1.printInfo();
-        item2.printInfo();
-
-        System.out.println(item1.equals(item2));
+        BookRepository repo = new BookRepository();
+        repo.addBook(new book("Java", "Oracle", 2023, true));
+        repo.getAllBooks().forEach(System.out::println);
+        repo.updateAvailability(1, false);
+        repo.deleteBook(1);
+        repo.addBook(new book("Python", "Guido", 2020, true));
     }
 }

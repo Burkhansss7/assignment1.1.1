@@ -1,51 +1,33 @@
-import java.util.Objects;
-
-public class book extends LibraryItem {
-
+public class book {
+    private int id;
+    private String title;
     private String author;
+    private int year;
     private boolean isAvailable;
 
-    public book(String title, String author, int year, boolean isAvailable) {
-        super(title, year);
+    public book(int id, String title, String author, int year, boolean isAvailable) {
+        this.id = id;
+        this.title = title;
         this.author = author;
+        this.year = year;
         this.isAvailable = isAvailable;
     }
 
-    public String getAuthor() {
-        return author;
+    public book(String title, String author, int year, boolean isAvailable) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.isAvailable = isAvailable;
     }
 
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    @Override
-    public void printInfo() {
-        System.out.println(this);
-    }
+    public int getId() { return id; }
+    public String getTitle() { return title; }
+    public String getAuthor() { return author; }
+    public int getYear() { return year; }
+    public boolean isAvailable() { return isAvailable; }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", year=" + year +
-                ", available=" + isAvailable +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof book)) return false;
-        book book = (book) o;
-        return year == book.year &&
-                title.equals(book.title) &&
-                author.equals(book.author);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(title, author, year);
+        return title + " | " + author + " | " + year + " | available=" + isAvailable;
     }
 }
